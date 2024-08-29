@@ -1,6 +1,6 @@
 import { randomUUID } from "node:crypto"
 
-class Student {
+export class Student {
     public name: string
     public id: string
 
