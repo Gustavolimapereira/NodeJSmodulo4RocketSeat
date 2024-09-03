@@ -1,5 +1,5 @@
 import {expect, test} from 'vitest'
-import { AnswerQuestionuseCase } from './answer-question'
+import { AnswerQuestionUseCase } from './answer-question'
 import { AnswersRepository } from '../repositories/answers-repository'
 import { Answer } from '../entities/answer'
 
@@ -10,7 +10,7 @@ const fakeAnswersRepository: AnswersRepository = {
 }
 
 test('Create an answer', async () => {
-    const answerQuestion = new AnswerQuestionuseCase(fakeAnswersRepository)
+    const answerQuestion = new AnswerQuestionUseCase(fakeAnswersRepository)
 
     const answer = await answerQuestion.execute({
         questionId: '1',

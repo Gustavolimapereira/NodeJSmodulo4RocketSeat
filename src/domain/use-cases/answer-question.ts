@@ -8,7 +8,7 @@ interface AnswerQuestionuseCaseReuqest{
     content: string
 }
 
-export class AnswerQuestionuseCase{
+export class AnswerQuestionUseCase{
 
     constructor(
         private answersRepository: AnswersRepository,
