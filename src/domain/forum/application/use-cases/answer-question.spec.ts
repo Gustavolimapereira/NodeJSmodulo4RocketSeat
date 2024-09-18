@@ -1,0 +1,19 @@
+import { AnswerQuestionUseCase } from './answer-question'
+import { AnswersRepository } from '../repositories/answers-repository'
+import { Answer } from '../forum/enterprise/entities/answer'
+
+const fakeAnswersRepository: AnswersRepository = {
+  create: async (answer: Answer) => {},
+}
+
+test('Create an answer', async () => {
+  const answerQuestion = new AnswerQuestionUseCase(fakeAnswersRepository)
+
+  const answer = await answerQuestion.execute({
+    questionId: '1',
+    InstructorId: '1',
+    content: 'Nova resposta',
+  })
+
+  expect(answer.content).toEqual('Nova resposta')
+})
