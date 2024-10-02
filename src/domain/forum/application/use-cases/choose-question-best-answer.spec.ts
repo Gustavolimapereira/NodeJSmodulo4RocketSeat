@@ -4,7 +4,6 @@ import { UniqueEntityID } from "@/core/entities/unique-entity-id";
 import { ChooseQuestionBestAnswerUseCase } from "@/domain/forum/application/use-cases/choose-question-best-answer";
 import { makeQuestion } from "test/factories/make-question";
 import { InMemoryQuestionsRepository } from "test/repositories/in-memory-questions-repository";
-import { FetchRecentQuestionsUseCase } from "./fetch-recent-questions";
 
 let inMemoryQuestionsRepository: InMemoryQuestionsRepository;
 let inMemoryAnswersRepository: InMemoryAnswersRepository;
@@ -13,7 +12,11 @@ let sut: ChooseQuestionBestAnswerUseCase;
 describe("Choose Question Best Answer", () => {
   beforeEach(() => {
     inMemoryQuestionsRepository = new InMemoryQuestionsRepository();
-    sut = new FetchRecentQuestionsUseCase(inMemoryQuestionsRepository);
+    inMemoryAnswersRepository = new InMemoryAnswersRepository(); // Inicializa o repositório de respostas
+    sut = new ChooseQuestionBestAnswerUseCase(
+      inMemoryQuestionsRepository,
+      inMemoryAnswersRepository,
+    ); // Inicializa o caso de uso correto
   });
 
   it("should be able to choose the question best answer", async () => {

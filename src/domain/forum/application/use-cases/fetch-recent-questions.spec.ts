@@ -8,7 +8,7 @@ let sut: FetchRecentQuestionsUseCase;
 describe("Fetch Recent Questions", () => {
   beforeEach(() => {
     inMemoryQuestionsRepository = new InMemoryQuestionsRepository();
-    sut = new FetchRecentQuestionsUseCase(InMemoryQuestionsRepository);
+    sut = new FetchRecentQuestionsUseCase(inMemoryQuestionsRepository);
   });
 
   it("should be able to fetch recent questions", async () => {
